@@ -476,7 +476,8 @@ progress {
 .display-3,
 .display-4 {
     font-weight: 500;
-    line-height: 1.08
+    line-height: 1.08;
+    background-color: white
 }
 
 .display-4 {
@@ -24534,6 +24535,10 @@ html {
     .lead {
         font-size: 1.25rem
     }
+
+    #canvas{ 
+        display: none;
+    }
 }
 
 .h1,
@@ -27112,5 +27117,15 @@ a.text-white-60:hover {
     background-color: transparent;
     padding: 0
 }
+
+
+
+#canvas {
+    position: fixed;
+    bottom: 0px;
+    height: 60vh; 
+    width: 100vw;
+    z-index: -3px !important; 
+  }
 
 /*# sourceMappingURL=theme.bundle.css.map*/

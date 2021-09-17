@@ -5,28 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
     
     <!-- Map CSS -->
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
     
     <!-- Libs CSS -->
-    <link rel="stylesheet" href="assets/css/libs.bundle.css" />
+    <link rel="stylesheet" href="./assets/css/libs.bundle.css" />
     
     <!-- 
       Theme Sans Serif CSS
       Remove the "disabled" attribute if you want to enable Sans Serif for headings.
     -->
-    <link rel="stylesheet" href="assets/css/theme-sans-serif.bundle.css" id="themeSansSerif" disabled />
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.bundle.css" id="themeSansSerif" disabled />
     
     <!--
       Demo JS
       Remove the code below on a production website.
-    -->
-    <script src="assets/js/demo.bundle.js"></script>
-    
+    -->    
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="assets/css/theme.bundle.css" />
+    <link rel="stylesheet" href="./assets/css/theme.bundle.css" />
     
     <!-- Title -->
     <title>Chatting</title>
@@ -262,7 +260,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white ">
       <div class="container-lg mobile-center">
     
-        <a class="navbar-brand logo d-lg-block px-lg-" href="index.html"><img src="/assets/img/logo/black.svg"></a>
+        <a class="navbar-brand logo d-lg-block px-lg-" href="index.html"><img src="./assets/img/logo/black.svg"></a>
         
         <a class="btn-terciary d-mobile">Login</a>
     
@@ -272,23 +270,25 @@
     
       </div>
     </nav>
-
     <!-- WELCOME -->
-    <section class="pt-6 pt-md-11 pb-10 pb-md-12">
+    <section class="pt-6 pt-md-6 pb-10 pb-md-12" style="height: 90vh;">
 
-               <!--Left Img-->
+               <!--Left Img-
             <div class="img-hero-left"> 
-              <img src="/assets/img/illustrations/left.png">
+              <img src="./assets/img/illustrations/left.png">
             </div>
 
-             <!--Right Img-->
+    
              <div class="img-hero-right"> 
-              <img src="/assets/img/illustrations/right.png">
-            </div>      
+              <img src="./assets/img/illustrations/right.png">
+            </div>  
+            
+            ---->
 
       <div class="container-lg">
+        
         <div class="row justify-content-center">
-          <div class="col-md-6 col-xl-9 text-center">
+          <div class="col-xl-9 text-center">
 
             <!-- Heading -->
             <h1 class="display-3 mb-6">
@@ -308,6 +308,11 @@
           </div>
         </div>
       </div>
+
+      <canvas id="canvas" style="z-index: -3;"></canvas>
+
+
+      
     </section>
 
     <!-- SHAPE -->
@@ -473,7 +478,7 @@
     </div>
 
     <!-- TOOLS -->
-    <section class="position-relative pt-12 pt-md-15">
+    <section class="position-relative pt-12 pt-md-15" style="background-color: white;">
 
       <!-- Decoration -->
       <div class="position-absolute top-end text-warning mt-12 d-none d-md-block">
@@ -511,7 +516,7 @@
 
                       <!-- Logo -->
                       <p class="img-fluid svg-shim text-stripe mx-auto mb-6" style="max-width: 85px;">
-                      <img src="/assets/img/icons/wa.png" class="logo-int">
+                      <img src="./assets/img/icons/wa.png" class="logo-int">
                       </p>
 
                       <!-- Text -->
@@ -536,7 +541,7 @@
 
                       <!-- Logo -->
                       <p class="img-fluid svg-shim text-stripe mx-auto mb-6" style="max-width: 85px;">
-                      <img src="/assets/img/icons/sms.png" class="logo-int">
+                      <img src="./assets/img/icons/sms.png" class="logo-int">
                       </p>
 
                       <!-- Text -->
@@ -561,7 +566,7 @@
 
                       <!-- Logo -->
                       <p class="img-fluid svg-shim text-stripe mx-auto mb-6" style="max-width: 85px;">
-                      <img src="/assets/img/icons/pc.png" class="logo-int">
+                      <img src="./assets/img/icons/pc.png" class="logo-int">
                       </p>
 
                       <!-- Text -->
@@ -586,7 +591,7 @@
 
                       <!-- Logo -->
                       <p class="img-fluid svg-shim text-stripe mx-auto mb-6" style="max-width: 85px;">
-                      <img src="/assets/img/icons/fb.png" class="logo-int">
+                      <img src="./assets/img/icons/fb.png" class="logo-int">
                       </p>
 
                       <!-- Text -->
@@ -609,7 +614,7 @@
 
                       <!-- Logo -->
                       <p class="img-fluid svg-shim text-stripe mx-auto mb-6" style="max-width: 85px;">
-                      <img src="/assets/img/icons/ig.png" class="logo-int">
+                      <img src="./assets/img/icons/ig.png" class="logo-int">
                       </p>
 
                       <!-- Text -->
@@ -631,7 +636,7 @@
 
                   <!-- Logo -->
                   <p class="img-fluid svg-shim text-stripe mx-auto mb-6" style="max-width: 85px;">
-                  <img src="/assets/img/icons/tl.png" class="logo-int">
+                  <img src="./assets/img/icons/tl.png" class="logo-int">
                   </p>
 
                   <!-- Text -->
@@ -656,7 +661,7 @@
     </section>
 
     <!-- FEATURES -->
-    <section class="pt-10 pt-md-12">
+    <section class="pt-10 pt-md-12" style="background-color: white;">
       <div class="container-lg">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8 text-center">
@@ -761,7 +766,7 @@
     </section>
 
     <!-- PRICING -->
-    <section class="pt-10 pt-md-12">
+    <section class="pt-10 pt-md-12" style="background-color: white;">
       <div class="container-lg position-relative" style="z-index: 1;">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8 text-center">
@@ -1020,16 +1025,20 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+
+    <script type="text/babel" src="./assets/js/people.js"></script>
 
     <!-- JAVASCRIPT -->
     <!-- Map JS -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     
-    <!-- Vendor JS -->
-    <script src="assets/js/vendor.bundle.js"></script>
+  <!-- Vendor JS -->
+  <script src="assets/js/vendor.bundle.js"></script>
     
-    <!-- Theme JS -->
-    <script src="assets/js/theme.bundle.js"></script>
+  <!-- Theme JS -->
+  <script src="assets/js/theme.bundle.js"></script>
 
   </body>
 </html>
