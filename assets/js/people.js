@@ -2,7 +2,7 @@ console.clear()
 console.log('lsakdfalskjdflnksd')
 
 const config = {
-  src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/open-peeps-sheet.png',
+  src: './assets/img/people.png',
   rows: 15,
   cols: 7
 }
