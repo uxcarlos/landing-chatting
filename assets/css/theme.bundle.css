@@ -5770,7 +5770,9 @@ fieldset:disabled .btn {
 .card-img,
 .card-img-bottom,
 .card-img-top {
-    width: 100%
+    max-height: 600px; 
+    width: inherit;
+    height: inherit;
 }
 
 .card-img,
@@ -10841,7 +10843,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-    background-color: #6658ea !important
+    background-color: white !important
 }
 
 .bg-secondary {
@@ -23384,7 +23386,8 @@ a.badge.bg-primary-light-soft:hover {
     .card-stack-item {
         position: -webkit-sticky;
         position: sticky;
-        top: 140px
+        top: 140px; 
+        max-height: 600px; 
     }
 
     .card-stack-item>.card {

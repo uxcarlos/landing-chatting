@@ -28,8 +28,10 @@ const getRandomFromArray = (array) => (
 const resetPeep = ({ stage, peep }) => {
   const direction = Math.random() > 0.5 ? 1 : -1
   // using an ease function to skew random to lower values to help hide that peeps have no legs
-  const offsetY = 100 - 250 * gsap.parseEase('power2.in')(Math.random())
+  const offsetY = 100 - 100 * gsap.parseEase('power2.in')(Math.random())
   const startY = stage.height - peep.height + offsetY
+
+
   let startX
   let endX
   
@@ -61,8 +63,8 @@ const normalWalk = ({ peep, props }) => {
     endX
   } = props
 
-  const xDuration = 15
-  const yDuration = 0.30
+  const xDuration = 25
+  const yDuration = 0.40
   
   const tl = gsap.timeline()
   tl.timeScale(randomRange(0.5, 1.5))
