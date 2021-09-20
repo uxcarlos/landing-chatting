@@ -538,7 +538,9 @@ progress {
 }
 
 .logo-int {
-    width: 80px !important;
+    width: 80px;
+    height: 80px !important;
+
 }
 
 .figure {
@@ -23326,7 +23328,7 @@ a.badge.bg-primary-light-soft:hover {
 
 @media (min-width:992px) {
     .card-body {
-        padding: 3rem
+        padding: 2rem
     }
 
     .card-footer {
