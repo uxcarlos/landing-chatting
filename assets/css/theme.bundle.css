@@ -204,7 +204,7 @@ sup {
 }
 
 a {
-    color: #6658ea
+    color: #CA5447
 }
 
 a,
@@ -213,7 +213,7 @@ a:hover {
 }
 
 a:hover {
-    color: #CA5447
+    color: #a33c31
 }
 
 a:not([href]):not([class]),
@@ -10717,8 +10717,7 @@ fieldset:disabled .btn {
 }
 
 .text-primary {
-    color: #6658ea !important
-}
+    color: #CA5447 !important}
 
 .text-secondary {
     color: #575a7b !important

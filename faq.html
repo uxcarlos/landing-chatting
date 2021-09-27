@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon" />
+    
+    <!-- Map CSS -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
+    
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="assets/css/libs.bundle.css" />
+    
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="assets/css/theme-sans-serif.bundle.css" id="themeSansSerif" disabled />
+    
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->
+    <script src="assets/js/demo.bundle.js"></script>
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="assets/css/theme.bundle.css" />
+    
+    <!-- Title -->
+    <title>Chatting - FAQ</title>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156446909-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+    
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-156446909-3");
+    
+    </script>
+  </head>
+  <body>
+
+    <!-- MODALS -->
+    <!-- Sign in -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignInHeading">
+              Sign In
+            </h1>
+    
+            <!-- Text -->
+            <p>
+              Don’t have an account? <a href="sign-up.html">Sign up</a>
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="signInEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signInEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signInPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signInPasswordCaption">
+                  <a class="input-group-text text-decoration-none text-gray-500" id="signInPasswordCaption" data-toggle="password" href="#signInPassword">
+                    <i class="fe fe-eye"></i>
+                  </a>
+                </div>
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Sign in
+              </button>
+    
+            </form>
+    
+            <!-- Link -->
+            <a class="fs-sm" href="password-reset.html">
+              Forgot your password?
+            </a>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sign up -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignUpHeading">
+              Sign Up
+            </h1>
+    
+            <!-- Text -->
+            <p>
+              Create beautiful marketing websites in hours instead of weeks.
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="signUpEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signUpEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signUpPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signUpPasswordCaption">
+                  <a class="input-group-text text-decoration-none text-gray-500" id="signUpPasswordCaption" data-toggle="password" href="#signUpPassword">
+                    <i class="fe fe-eye"></i>
+                  </a>
+                </div>
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Sign up
+              </button>
+    
+            </form>
+    
+            <!-- Link -->
+            <small class="text-muted">
+              Already have an account? <a href="sign-in.html">Login</a>
+            </small>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Password reset -->
+    <div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-labelledby="modalPasswordResetHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h1 class="display-4 mb-4" id="modalPasswordResetHeading">
+              Password reset
+            </h1>
+    
+            <!-- Text -->
+            <p class="text-muted">
+              Enter your email to reset your password.
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="passwordResetEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="passwordResetEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Reset password
+              </button>
+    
+            </form>
+    
+            <!-- Text -->
+            <small class="text-muted">
+              Remember your password? <a href="sign-in.html">Log in</a>.
+            </small>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sale -->
+    <div class="modal fade" id="modalSale" tabindex="-1" role="dialog" aria-labelledby="modalSaleHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Image -->
+            <img class="img-fluid mb-4 mt-n11" src="assets/img/illustrations/illustration-4.png" alt="...">
+    
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSaleHeading">
+              30 Day Free Trial
+            </h1>
+    
+            <!-- Text -->
+            <p class="text-muted">
+              We’ll help you get started by getting you guides and all the basic informaiton.
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="saleModalEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="saleModalEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Start Trial
+              </button>
+    
+            </form>
+    
+            <!-- Text -->
+            <small class="text-muted">
+              <a class="text-reset" data-bs-dismiss="modal" href="#!">No thanks, I hate free stuff.</a>
+            </small>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+      <div class="container-lg mobile-center" style="justify-content: center;">
+    
+        <a class="navbar-brand logo d-lg-block px-lg-" href="index.html"><img src="./assets/img/logo/black.svg"></a>
+        <a style="margin: 0px 10px;" class="btn-terciary d-mobile"href="./faq.html">FAQ</a>
+
+        <a style="margin: 0px 10px;" class="btn-terciary  d-mobile"href="https://web.chatting.app/login">Login</a>
+    
+      
+    
+  
+    
+      </div>
+    </nav>
+    <!-- WELCOME -->
+    <section class="pt-6 pt-md-11">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-9 text-center">
+
+            <!-- Preheading -->
+            <h6 class="text-uppercase text-primary mb-5">
+              FAQ
+            </h6>
+
+            <!-- Heading -->
+            <h2 class="display-3 mb-4">
+              Preguntas Frecuentes
+            </h2>
+
+            <!-- Text -->
+            <p class="fs-lg text-muted">
+              Aqui encontraras respeustas a preguntas frecuentes acerca de nuestros servicios, integraciones y precios.
+            </p>
+
+            <!-- Form -->
+            <form class="mx-auto text-white" style="max-width: 462px;">
+              <div class="input-group">
+                <span class="input-group-text" id="search">
+                  <i class="fe fe-search"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Search for answers" aria-label="Search" aria-describedby="search">
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="pt-10 pt-md-12">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col">
+
+            <!-- Divider -->
+            <hr class="hr-sm bg-warning mx-auto mb-10 mb-md-12">
+
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-md-4">
+
+            <!-- Header -->
+            <div class="position-sticky mb-8" style="top: 2rem;">
+
+              <!-- Heading -->
+              <h1 class="mb-4">
+                General
+              </h1>
+
+              <!-- Text -->
+              <p class="mb-0">
+                Preguntas generales acerca de la herramienta y sus funcionalidades
+              </p>
+
+            </div>
+
+          </div>
+          <div class="col-md-7">
+
+            <!-- List group -->
+            <div class="list-group list-group-lg list-group-flush mt-n7 mb-9" id="faqData">
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqDataTwo" role="button" aria-expanded="false" aria-controls="faqDataTwo">
+                  ¿Cual es el beneficio de usar Chatting?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse show" id="faqDataTwo" data-bs-parent="#faqData">
+                  <p class="mt-2 mb-0">
+                    <br>
+                    <b>Incrementa tus ventas!</b> Ofrece un mejor seguimiento y una mejor calidad de atencion. La comunicación rápida y concreta es clave en alcanzar un mayor porcentaje de cierre de venta. 
+                    <br>
+                    <br>
+                    <b>Segmenta!</b> Podrás crear campos personalizados que te ayudarán a filtrar y segmentar tu base de datos de clientes y así, poder identificar a diferentes grupos de clientes en base a tus necesidades (<u>como una promoción nueva que tengas</u>)
+                    <br>
+                    <br>
+                    <b>Automatiza</b> Podrás olvidarte de todo lo repetitivo con respuestas rápidas, división de carga de acuerdo a los diferentes roles de tu organización y programar seguimientos personalizados para que no dejes pasar ninguna oportunidad.
+                    <br>
+                    <br>
+                    <b>Colabora!</b> Asigna conversaciones y delega el trabajo equitativamente. Mantén un estandar de comunicación con notas dentro de los chats e inculca ese trabajo en equipo que marca la diferencia con nuestras 50+ funcionalidades que tenemos para tí.
+                    <br>
+                    <br>
+                    <b>Analiza!</b> Identifica tendencias, observa el desempeño de tus trabajadores y el fruto de tu trabajo.
+
+                </div>
+
+              </div>
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqDataOne" role="button" aria-expanded="true" aria-controls="faqDataOne">
+                  ¿Como funciona?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse " id="faqDataOne" data-bs-parent="#faqData">
+                  <p class="mt-2 mb-0">
+                    Nos conectamos a tus canales favoritos de comunicación como WhatsApp, SMS, Facebook (y pronto Instagarm) para que puedas administrar todas las conversaciones, asignarlas entre miembros de tu equipo, darles order y automatizar esas tareas repetitivas                </p>
+                </div>
+
+              </div>
+
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqDataThree" role="button" aria-expanded="false" aria-controls="faqDataThree">
+                  ¿Cómo puedo probar la plataforma?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqDataThree" data-bs-parent="#faqData">
+                  <p class="mt-2 mb-0">
+                   Registrate en <a hrer="https://web.chatting.app/register"></a>, haz login y da click en el anuncio de "Comenzar prueba" para iniciar tu prueba <b>GRATIS</b> de 14 días. Si requieres ayuda para iniciar a usar la plataforma puedes agendar una llamada con nuestro equipo de Customer Success y que te puedan guiar en el proceso de integración.
+                  </p>
+                </div>
+
+              </div>
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqDataFour" role="button" aria-expanded="false" aria-controls="faqDataFour">
+                  ¿Puedo crear un embudos de ventas?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqDataFour" data-bs-parent="#faqData">
+                  <p class="mt-2 mb-0">
+                    Si! La plataforma te permite tener propiedades que aplican para todos tus contactos. Si lo deseas puedes crear una propiedad tipo <b>kanban</b> y crear cuantos procesos de ventas o de soporte quieras!
+                  
+                </p>
+                </div>
+
+              </div>
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqDataFour" role="button" aria-expanded="false" aria-controls="faqDataFour">
+                  ¿Tengo que bajar una aplicación?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqDataFour" data-bs-parent="#faqData">
+                  <p class="mt-2 mb-0">
+                    No, Chatting es una plataforma web y emula tu WhatsApp Web. La aplicación es responsiva para poder tener una versión <b>on-the-go</b> de nuestro chat para que puedas utilizarlo desde tu navegador móvil si lo necesitas ;)                  
+                </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-md-4">
+
+            <!-- Header -->
+            <div class="position-sticky mb-8" style="top: 2rem;">
+
+              <!-- Heading -->
+              <h1 class="mb-4">
+                Integraciones
+              </h1>
+
+              <!-- Text -->
+              <p class="mb-0">
+                Integra tus canales de comunicación favoritos
+              </p>
+
+            </div>
+
+          </div>
+          <div class="col-md-7">
+
+            <!-- List group -->
+            <div class="list-group list-group-lg list-group-flush mt-n7 mb-9" id="faqAccount">
+
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqAccountTwo" role="button" aria-expanded="false" aria-controls="faqAccountTwo">
+                  Todas las integraciones vienen incluidas en el plan gratis?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqAccountTwo" data-bs-parent="#faqAccount">
+                  <p class="mt-2 mb-0">
+                    No! para poder integrar tus canales en tiempo real (<b>WhatsApp, Facebook, IG</b>) tendrás que adquirir el plan Pro
+                  </p>
+                </div>
+
+              </div>
+         
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqAccountOne" role="button" aria-expanded="true" aria-controls="faqAccountOne">
+                  Que canales integran?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse show" id="faqAccountOne" data-bs-parent="#faqAccount">
+                  <p class="mt-2 mb-0">
+                    <br>
+                    En nuestra versión de introducción tenemos disponible integracion via QR con <b> WhatsApp</b>, tenemos un <b>widget para tu pagina web</b> (como el que nosotros tenemos en nuestra página, tenemos integración <b>SMS</b> via <a href="https://twilio.com">Twilio</a>, tenemos integración con <b>Facebook Messenger</b> en fase <u>beta</u> <br>
+                    <br> 
+                    Estamos trabajando en 
+                    traer otros canales en el futuro cercano! (Instagram, Telegram, Email, MercadoLibre)
+                  </p>
+                </div>
+
+              </div>
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqAccountTwo" role="button" aria-expanded="false" aria-controls="faqAccountTwo">
+                  Su integración de WhatsApp require verificación?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqAccountTwo" data-bs-parent="#faqAccount">
+                  <p class="mt-2 mb-0">
+                    No! Ofrecemos una solución plug & play que se conecta a tu WhatsApp usando el código QR por lo que no podrás utilizar tu whatsapp web u otra integracion que requiera que te conectes vía QR
+                  </p>
+                </div>
+
+              </div>
+         
+            </div>
+
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-md-4">
+
+            <!-- Header -->
+            <div class="position-sticky mb-8" style="top: 2rem;">
+
+              <!-- Heading -->
+              <h1 class="mb-4">
+                Pagos
+              </h1>
+
+              <!-- Text -->
+              <p class="mb-0">
+                Ofrecemos la solución de CRM multicanal más economica del mercado
+              </p>
+
+            </div>
+
+          </div>
+          <div class="col-md-7">
+
+            <!-- List group -->
+            <div class="list-group list-group-lg list-group-flush mt-n7 mb-0" id="faqBilling">
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqBillingTwo" role="button" aria-expanded="false" aria-controls="faqBillingTwo">
+                  ¿Como funciona el esquema de usuarios?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse show" id="faqBillingTwo" data-bs-parent="#faqBilling">
+                  <p class="mt-2 mb-0">
+                    Nuestros planes pagados se cobran de manera mensual por el número de asientos que necesites. Nuestros planes requieren  un mínimo de 4 asientos para Chatting no opere en périda. 
+                    <br>
+                    <br>
+                    Queremos ofrecer
+                    el menor precio posible. 
+                    
+                    <br>
+                    <br>
+                    Nuestro plan <b>Pro</b> tiene un costo de $10 USD por asiento<br> ($8 pagando anualidad)
+                    <br>
+                    <br>
+                    nuestro plan <b>Enterprise</b> tiene un costo $25<br> ($20 pagando anualidad)
+                  </p>
+                </div>
+
+              </div>
+              <div class="list-group-item">
+
+                <!-- Heading -->
+                <a class="collapse-toggle fs-lg fw-bold text-decoration-none text-reset" data-bs-toggle="collapse" href="#faqBillingOne" role="button" aria-expanded="true" aria-controls="faqBillingOne">
+                  ¿Puedo cancelar la suscripción cuando yo quiera?
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse" id="faqBillingOne" data-bs-parent="#faqBilling">
+                  <p class="mt-2 mb-0">
+                   Si, nuestro plan mensual te permite cancelar la suscripción cuando tu lo desees. 
+                  </p>
+                </div>
+
+              </div>
+          
+          
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="py-12 py-md-16 bg-dark">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8 text-center">
+
+            <!-- Preheading -->
+            <h6 class="text-uppercase text-custom -light mb-5">
+              Save your time
+            </h6>
+
+            <!-- Heading -->
+            <h2 class="display-1 text-white mb-4">
+              Start Chatting!
+            </h2>
+
+            <!-- Text -->
+            <p class="text-white-80">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque.
+            </p>
+
+            <!-- Button -->
+            <a class="btn btn-gray-300 no-shadow " href="#!">
+              Comienza tu Prueba
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer py-8 pt-md-11 bg-dark">
+      <div class="container-lg">
+
+        <div class="row">
+
+        </div>
+        <div class="row align-items-center">
+          <div class="col-12 col-md">
+    
+            <!-- List -->
+            <ul class="list-inline list-unstyled text-white small mb-md-0">
+              <li class="list-inline-item">
+                © 2021 Chatting App
+              </li>
+              <li class="list-inline-item ms-md-8">
+                <a class="text-reset" href="#!">
+                 Aviso de Privacidad
+                </a>
+              </li>
+              <li class="list-inline-item ms-md-8">
+                <a class="text-reset" href="#!">
+                 T&C
+                </a>
+              </li>
+            </ul>
+    
+          </div>
+          <div class="col-12 col-md-auto">
+    
+            <!-- Social -->
+            <ul class="list-inline list-unstyled text-white mb-0">
+              <li class="list-inline-item">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0V0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.21 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.21 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item ms-1">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.675 0H1.325C0.593 0 0 0.593 0 1.325V22.676C0 23.407 0.593 24 1.325 24H12.82V14.706H9.692V11.084H12.82V8.413C12.82 5.313 14.713 3.625 17.479 3.625C18.804 3.625 19.942 3.724 20.274 3.768V7.008L18.356 7.009C16.852 7.009 16.561 7.724 16.561 8.772V11.085H20.148L19.681 14.707H16.561V24H22.677C23.407 24 24 23.407 24 22.675V1.325C24 0.593 23.407 0 22.675 0V0Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item ms-1">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 4.55705C23.117 4.94905 22.168 5.21305 21.172 5.33205C22.189 4.72305 22.97 3.75805 23.337 2.60805C22.386 3.17205 21.332 3.58205 20.21 3.80305C19.313 2.84605 18.032 2.24805 16.616 2.24805C13.437 2.24805 11.101 5.21405 11.819 8.29305C7.728 8.08805 4.1 6.12805 1.671 3.14905C0.381 5.36205 1.002 8.25705 3.194 9.72305C2.388 9.69705 1.628 9.47605 0.965 9.10705C0.911 11.388 2.546 13.522 4.914 13.997C4.221 14.185 3.462 14.229 2.69 14.081C3.316 16.037 5.134 17.46 7.29 17.5C5.22 19.123 2.612 19.848 0 19.54C2.179 20.937 4.768 21.752 7.548 21.752C16.69 21.752 21.855 14.031 21.543 7.10605C22.505 6.41105 23.34 5.54405 24 4.55705Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item ms-1">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.373 0 0 5.372 0 12C0 17.084 3.163 21.426 7.627 23.174C7.522 22.225 7.427 20.769 7.669 19.733C7.887 18.796 9.076 13.768 9.076 13.768C9.076 13.768 8.717 13.049 8.717 11.986C8.717 10.318 9.684 9.072 10.888 9.072C11.911 9.072 12.406 9.841 12.406 10.762C12.406 11.791 11.751 13.33 11.412 14.757C11.129 15.951 12.011 16.926 13.189 16.926C15.322 16.926 16.961 14.677 16.961 11.431C16.961 8.558 14.897 6.549 11.949 6.549C8.535 6.549 6.531 9.11 6.531 11.756C6.531 12.787 6.928 13.894 7.424 14.494C7.522 14.613 7.536 14.718 7.507 14.839L7.174 16.199C7.121 16.419 7 16.466 6.772 16.36C5.273 15.662 4.336 13.471 4.336 11.711C4.336 7.926 7.086 4.449 12.265 4.449C16.428 4.449 19.663 7.416 19.663 11.38C19.663 15.516 17.056 18.844 13.436 18.844C12.22 18.844 11.077 18.213 10.686 17.466L9.938 20.319C9.667 21.362 8.936 22.669 8.446 23.465C9.57 23.812 10.763 24 12 24C18.627 24 24 18.627 24 12C24 5.372 18.627 0 12 0V0Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+    
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- OPTIONS -->
+ 
+
+    <!-- FOOTER -->
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><script src="https://cdn.jsdelivr.net/gh/luisxciv/whatsapp-button-widget@4.3/whatsapp-button-widget.js"></script><script> var whatsAppBtn = new chattingWhatsAppBtn({contact:{phone:"5214428466999",meLink:"https://facebook.com/chatting",instagram:"chatting.app",telegram_username:"luisxciv",email_address:"hola@chatting.app"},text:"Hola! Estoy interesado en su CRM omnicanal!",callTo:"Aùn tienes dudas?",backgroundColor:"#dc5341",textColor:"#f0ffff",position:"right",channels:["messenger","whatsapp","email","instagram","telegram",],shape:"round",emojii:"💬"});whatsAppBtn.renderButton()</script>
+
+    <!-- JAVASCRIPT -->
+    <!-- Map JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    
+    <!-- Vendor JS -->
+    <script src="assets/js/vendor.bundle.js"></script>
+    
+    <!-- Theme JS -->
+    <script src="assets/js/theme.bundle.js"></script>
+
+  </body>
+</html>
