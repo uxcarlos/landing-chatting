@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
+    
+    <!-- Map CSS -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
+    
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="./assets/css/libs.bundle.css" />
+    
+    <!-- 
+      Theme Sans Serif CSS
+      Remove the "disabled" attribute if you want to enable Sans Serif for headings.
+    -->
+    <link rel="stylesheet" href="./assets/css/theme-sans-serif.bundle.css" id="themeSansSerif" disabled />
+    
+    <!--
+      Demo JS
+      Remove the code below on a production website.
+    -->    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="./assets/css/theme.bundle.css" />
+    
+    <!-- Title -->
+    <title>Chatting</title>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156446909-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+    
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-156446909-3");
+    
+    </script>
+  </head>
+  <body>
+
+    <!-- MODALS -->
+    <!-- Sign in -->
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignInHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignInHeading">
+              Sign In
+            </h1>
+    
+            <!-- Text -->
+            <p>
+              Don’t have an account? <a href="sign-up.html">Sign up</a>
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="signInEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signInEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signInPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signInPasswordCaption">
+                  <a class="input-group-text text-decoration-none text-gray-500" id="signInPasswordCaption" data-toggle="password" href="#signInPassword">
+                    <i class="fe fe-eye"></i>
+                  </a>
+                </div>
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Sign in
+              </button>
+    
+            </form>
+    
+            <!-- Link -->
+            <a class="fs-sm" href="password-reset.html">
+              Forgot your password?
+            </a>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sign up -->
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUpHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSignUpHeading">
+              Sign Up
+            </h1>
+    
+            <!-- Text -->
+            <p>
+              Create beautiful marketing websites in hours instead of weeks.
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="signUpEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="signUpEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Password -->
+              <div class="form-group">
+                <div class="input-group inpit-group-merge">
+                  <input class="form-control" id="signUpPassword" placeholder="Your password" type="password" aria-label="Your password" aria-describedby="signUpPasswordCaption">
+                  <a class="input-group-text text-decoration-none text-gray-500" id="signUpPasswordCaption" data-toggle="password" href="#signUpPassword">
+                    <i class="fe fe-eye"></i>
+                  </a>
+                </div>
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Sign up
+              </button>
+    
+            </form>
+    
+            <!-- Link -->
+            <small class="text-muted">
+              Already have an account? <a href="https://www.web.chatting.app/login">Login</a>
+            </small>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Password reset -->
+    <div class="modal fade" id="modalPasswordReset" tabindex="-1" role="dialog" aria-labelledby="modalPasswordResetHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h1 class="display-4 mb-4" id="modalPasswordResetHeading">
+              Password reset
+            </h1>
+    
+            <!-- Text -->
+            <p class="text-muted">
+              Enter your email to reset your password.
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="passwordResetEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="passwordResetEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Reset password
+              </button>
+    
+            </form>
+    
+            <!-- Text -->
+            <small class="text-muted">
+              Remember your password? <a href="sign-in.html">Log in</a>.
+            </small>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sale -->
+    <div class="modal fade" id="modalSale" tabindex="-1" role="dialog" aria-labelledby="modalSaleHeading" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+    
+            <!-- Close -->
+            <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+    
+            <!-- Image -->
+            <img class="img-fluid mb-4 mt-n11" src="assets/img/illustrations/illustration-4.png" alt="...">
+    
+            <!-- Heading -->
+            <h1 class="mb-4" id="modalSaleHeading">
+              30 Day Free Trial
+            </h1>
+    
+            <!-- Text -->
+            <p class="text-muted">
+              We’ll help you get started by getting you guides and all the basic informaiton.
+            </p>
+    
+            <!-- Form -->
+            <form class="mb-6">
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label class="visually-hidden" for="saleModalEmail">
+                  Your email
+                </label>
+                <input class="form-control" id="saleModalEmail" type="email" placeholder="Your email">
+              </div>
+    
+              <!-- Button -->
+              <button class="btn w-100 btn-primary">
+                Start Trial
+              </button>
+    
+            </form>
+    
+            <!-- Text -->
+            <small class="text-muted">
+              <a class="text-reset" data-bs-dismiss="modal" href="#!">No thanks, I hate free stuff.</a>
+            </small>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+      <div class="container-lg mobile-center">
+    
+        <a class="navbar-brand logo d-lg-block px-lg-" href="index.html"><img src="./assets/img/logo/black.svg"></a>
+        
+        <a class="btn-terciary d-mobile"href="https://web.chatting.app/login">Login</a>
+    
+      
+    
+  
+    
+      </div>
+    </nav>
+    <!-- WELCOME -->
+    <div class="pt-6 pt-md-6 pb-10 pb-md-12">
+
+            
+            <div style="padding: 0px 100px;">
+                <h1 style="text-align: center; padding-bottom: 40px;">
+                    Términos y Condiciones de Chatting.app
+                </h1>
+<div >
+  <h3><span style="font-family: inherit; font-size: 1.75rem;">1. Definiciones</span></h3>
+  <p></p>
+  <p>En las presentes condiciones de servicio, los conceptos siguientes tendrán el significado descrito en el artículo correspondiente (cuando escritos con mayúscula).</p>
+  <p>“<strong>Derechos de Acceso</strong>”: significará todos los derechos contractuales a acceder a, recibir y utilizar los Servicios a través de los protocolos y procesos técnicos establecidos por chatting en virtud del acuerdo entre las partes;</p>
+  <p><strong>“</strong><strong>Servicio(s) Adicional(es): </strong>significará todos los elementos – cuya lista se puede consultar en el Sitio – que el Cliente puede solicitar en adición al Paquete Base;</p>
+  <p><strong>“</strong><strong>Administrador” </strong>significará el usuario quien es responsable por la Cuenta de Administrador;</p>
+  <p><strong>“</strong><strong>Cuenta de Administrador” </strong>significará la cuenta de usuario del Cliente, a la que sólo podrá acceder, y que sólo podrá utilizar el Administrador y a través de la cual el Administrador podrá <strong>(i)</strong> utilizar la Herramienta, la App y los Servicios según el pedido del Cliente, <strong>(ii)</strong> modificar los parámetros de configuración (inclusive, pero no limitado a, agregar Servicios o elementos adicionales) y <strong>(iii)</strong> crear cuentas adicionales para Usuarios;</p>
+  <p><strong>“</strong><strong>App” </strong>significará la aplicación de la Herramienta a través de la cual se pueden utilizar los servicios;</p>
+  <p><strong>“</strong><strong>Paquete Básico” </strong>significará los servicios estándar que el Cliente podrá usar a través de la Herramienta y/o la App y que puedan quedar sujetos a cambios en el futuro:</p>
+  <p><strong>“</strong><strong>Comunicación” </strong>significará toda comunicación enviada por chatting por correo electrónico con intervalos regulares con anuncios relacionados con los Servicios, correos electrónicos administrativos y newsletters;</p>
+  <p><strong>“</strong><strong>Cliente” </strong>significará toda persona física o entidad legal, así como cualquier persona que solicite Servicios de chatting y/o celebre un acuerdo con chatting en nombre de o en representación de esta entidad legal. Se supone que toda persona física tenga por lo menos 18 años;</p>
+  <p><strong>“</strong><strong>Datos del Cliente” </strong>significará cualquier y todo contenido, información y datos – inclusive datos personales – relacionados con prospectos, socios comerciales, clientes y/o clientes del Cliente (enumeración no limitativa) introducidos en y subidos a la Herramienta y/o App por el Cliente utilizando los Servicios;</p>
+  <p><strong>“</strong><strong>Demo” </strong>significará la versión demo de la herramienta, que le permite al Cliente, antes de celebrar un acuerdo con chatting, utilizar la Herramienta, la App y los Servicios durante un período de 7 días naturales;</p>
+  <p><strong>“</strong><strong>Documentación” </strong>significará toda documentación proporcionada por chatting sobre la Herramienta, la App y los Servicios así como sobre el Sitio e inclusive toda documentación, todos los tutoriales y otros materiales disponibles en el Sitio;</p>
+  <p><strong>“</strong><strong>Declaración de Privacidad” </strong>significará la declaración de privacidad de chatting tal como se encuentra disponible en <a href="https://www.chatting.app/privacy" rel="nofollow">https://www.chatting.app/privacy</a>;</p>
+  <p><strong>“</strong><strong>Servicios” </strong>significará los Servicios en línea que facilitan la gestión y colaboración en línea, y que constan de entre otros, un sistema de chat con embudo de ventas y un widget web;</p>
+  <p><strong>“</strong><strong>chatting”</strong> significará la sociedad anónima promotora de inversión de capital variable “chatting”</p>
+  <p><strong>“</strong><strong>Indemnizado” </strong>significará todo encargado, director, socio, empleado y afiliado de chatting;</p>
+  <p><strong>“</strong><strong>Período” </strong>significará el período inicial o prorrogado – i.e. trimestre o año – durante el cual el Cliente puede utilizar la Herramienta, App y Servicios, tal como los eligió el Cliente al solicitar los Servicios;</p>
+  <p><strong>“</strong><strong>Herramienta” </strong>significará la aplicación en línea, desarrollada por chatting, con la marca comercial “chatting®”;</p>
+  <p><strong>“</strong><strong>Usuario” </strong>significará todo usuario del Cliente, que no sea el Administrador, para quien el Cliente también ha solicitado una Cuenta de Usuario;</p>
+  <p><strong>“</strong><strong>Cuenta de Usuario” </strong>significará la cuenta de usuario, a la que podrá acceder a un Usuario a través de su registro personal para utilizar la Herramienta, la App y los Servicios;</p>
+  <p><strong>“</strong><strong>Sitio” </strong>significará <a href="https://www.chatting.app" rel="nofollow">https://www.chatting.app</a> y todo sitio chatting del país donde opera chatting.</p>
+  <p></p>
+  <h3>2. Alcance</h3>
+  <p></p>
+  <p>chatting ha desarrollado y ofrece una Herramienta para gestión de chat con embudo de ventas y de un widget web. Esta Herramienta, que también está disponible en forma de una App, ofrece una integración de varios Servicios que garantizan una gestión comercial más eficiente de sus Clientes.</p>
+  <p>Toda relación comercial entre chatting y su Cliente se regirá por las condiciones de servicio tal como figuran en el presente documento.</p>
+  <p>Al solicitar los Servicios o al celebrar un acuerdo con chatting – inclusive al registrarse para la Demo – el Cliente reconoce haber leído las presentes condiciones de servicio y asimismo el acuerdo de tratamiento de datos – que estará disponible en la Cuenta de Administrador (cfr. <strong>Artículo 17</strong>) – y por consiguiente acepta ambos. Las condiciones de servicio siempre prevalecerán sobre las condiciones del Cliente, inclusive cuando estas estipulen que son las únicas condiciones válidas.</p>
+  <p>La nulidad de una o varias disposiciones de estas condiciones de servicio o cualquier parte de ellas no afectará la validez y exigibilidad legal de las demás cláusulas y/o del resto de la disposición en cuestión. En caso de nulidad, las partes negociarán la sustitución de la disposición nula por una disposición equivalente de acuerdo al espiritu de estas condiciones de servicio. Si las Partes no alcanzan un acuerdo, entonces el tribunal competente podrá modificar la disposición inválida y darle forma legal.</p>
+  <p>La omisión (reiterada) por parte de chatting de ejercer cualquier derecho sólo podrá interpretarse como una tolerancia hacia una situación específica y no dará lugar a una pérdida de derechos.</p>
+  <p>Estas condiciones de servicio no afectarán los derechos legales obligatorios que la legislación francesa otorga al consumidor-Cliente en materia de protección al consumidor.</p>
+  <p>chatting se reserva el derecho de modificar sus condiciones de servicio cuando así lo desee, mediante un cambio en su Sitio. chatting se compromete a notificárselo al Cliente mediante <strong>(i)</strong> un aviso en su Sitio dentro de un plazo razonable antes de la entrada en vigor de las condiciones de servicio modificadas y/o <strong>(ii)</strong> a través de la comunicación chatting.</p>
+  <p>Estas condiciones de servicio deben leerse junto con la Política de Privacidad y pueden ser consultadas en cualquier momento en el Sitio.</p>
+  <p></p>
+  <h3>3. Trial</h3>
+  <p></p>
+  <p>Los catálogos, prospectos, newsletters, folletos, Comunicaciones chatting y otros anuncios publicitarios, así como los anuncios en el Sitio son totalmente no vinculantes y sólo pueden ser considerados por el Cliente como una invitación a solicitar los Servicios, a no ser que se haya especificado explícitamente lo contrario.</p>
+  <p>Todao trial sólo será válida para <strong>(i)</strong> un pedido específico y por lo tanto no será aplicable para pedidos posteriores (similares) así como <strong>(ii)</strong> la duración estipulada en ellas.</p>
+  <p></p>
+  <p>A cada Cliente potencial se le dará la oportunidad de utilizar el trial gratis mediante registro para tal fin en el Sitio. A</p>
+  <p>El uso del trial se desactivará automática cuando hayan pasado 14 días naturales después del registro en línea. Sin embargo, durante y al terminar el período del trial el cliente potencial podrá celebrar un acuerdo (definitivo) con chatting en cuyo caso se deberán cumplir las condiciones descritas en el <strong>Artículo 5</strong>.</p><h3 style="font-family: Roboto, sans-serif;">4. Demo</h3><div>chatting ofrece una videollamada Demo donde los potenciales Clientes accederán a un recorrido de la plataforma guiado por un representante de ventas.</div>
+  <p></p>
+  <h3>5. Celebración del Acuerdo</h3>
+  <p></p>
+  <p><strong><em>Cuenta de Administrador Activa</em></strong></p>
+  <p>En el caso de que el Cliente haya usado la Demo y aún tenga una Cuenta de Administrador activa, podrá solicitar los Servicios a través de la Cuenta de Administrador haciendo clic en el botón “update” siempre que el Cliente proporcione la información siguiente:</p>
+  <ul>
+  <li>Servicios Solicitados, es decir el Paquete Base y, en su caso, cualquier funcionalidad adicional;</li>
+  <li>Número solicitado de Usuarios;</li>
+  <li>Facturación trimestral o anual.</li>
+  <li>Pago con tarjeta de crédito y mediante débito directo (SEPA), inclusive la información de pago.</li>
+  </ul>
+  <p>Un acuerdo sólo entrará en vigor después de una confirmación electrónica del pedido o en el momento que chatting haga los Servicios disponibles para el Cliente.</p>
+  <p></p>
+  <p><strong><em>Cuenta de Administrador No Activa</em></strong></p>
+  <p></p>
+  <p>En el caso de que un Cliente ya no tenga una Cuenta de Administrador activa pero desee solicitar los Servicios, el Cliente deberá contactar a chatting por correo electrónico en (hola@chatting.app).</p>
+  <p>El Cliente declara y garantiza en cualquier caso que <strong>(i)</strong> toda la información proporcionada (registro) es completa, veraz y exacta <strong>(ii)</strong> mantendrá la precisión de dicha información.</p>
+  <p>En cualquier momento, chatting tendrá el derecho de solicitar información adicional sobre el Cliente, sus actividades o solvencia. En el caso de <strong>(i)</strong> que no se presente esta información, <strong>(ii) </strong>dudas por parte de chatting acerca de la identidad del Cliente o <strong>(iii)</strong> de que haya indicios de que el propio Cliente pretenda revender los Servicios, chatting tendrá el derecho de negarse a la ejecución del pedido o suspenderla. Una negativa a prestar los Servicios nunca le dará al Cliente el derecho a recibir cualquier tipo de compensación o indemnización.</p>
+  <p>Cualquier cambio o aditamento al Acuerdo después de que se haya(n) proporcionado la Cuenta de Administrador (y Cuenta(s) de usuario adicional(es)) sólo se darán por válidos después del consentimiento escrito y su implementación por parte de chatting.</p>
+  <p></p>
+  <h3>6. Entrega</h3>
+  <p></p>
+  <p>Después de la celebración del contrato, se le facilitará al Cliente el acceso a la Herramienta, la App y los Servicios, que se prestan como ‘Software as a Service (SaaS)’. Dicho derecho al acceso apenas implica un derecho no exclusivo y no transferible a utilizar la Herramienta, la App y los Servicios.</p>
+  <p>El hecho de facilitar de la Cuenta de Administrador será considerado como la entrega de la Herramienta, la App y los Servicios.</p>
+  <p>En el momento de la entrega, el Cliente tiene la obligación de efectuar una comprobación inicial que incluye, entre otros: el número de Usuarios, los Servicios (es decir el Paquete Base y/o las funcionalidades adicionales solicitadas), facturación trimestral o anual. El Cliente tiene la obligación de informar a chatting en un plazo de 48 horas a partir de la entrega sobre cualquier inconformidad a través del Servicio de Soporte o mediante un correo a (hola@chatting.app).</p>
+  <p>Si no se formulan quejas en dicho plazo de 48 horas, se supone que el Cliente ha dado su visto bueno y ha aceptado la entrega.</p>
+  <p></p>
+  <h3>7. Cuenta de Administrador/ Cuenta de Usuario</h3>
+  <p></p>
+  <p>El Cliente podrá acceder a la Herramienta y a la App y usar los Servicios a través de la Cuenta de Administrador y las Cuentas de Usuario adicionales.</p>
+  <p>El Administrador será el único responsable para cualquier uso y actividad de la Cuenta de Administrador.</p>
+  <p>Además de una Cuenta de Administrador, el Cliente también recibirá por lo menos una (1) Cuenta de Usuario adicional. El número de Cuentas de Usurario corresponde con el número de Usuarios del Cliente. Por lo tanto, cada Usuario tiene su propia Cuenta de Usuario. El Administrador determina el alcance de los derechos de las Cuentas de Usuario y el Administrador siempre seguirá siendo responsable por cualquier uso de las Cuentas de Usuario.</p>
+  <p>Cada Cuenta de Usuario (inclusive la Cuenta de Administrador) pertenece a una sola persona, y por esto motivo no podrá ser compartida con otras personas. Se recomienda que tanto el Administrador como cada Usuario creen una contraseña única, que la cambien frecuentemente y/o utilicen autenticación bifactorial.</p>
+  <p>El Cliente será el único responsable por la protección y la seguridad de la Cuenta de Administrador y de las Cuentas de Usuario. En este contexto, el Administrador y todos los Usuarios deberán garantizar la confidencialidad de sus respectivas cuentas, inclusive la confidencialidad de sus datos de registro como por ejemplo la contraseña. Por consiguiente, ni podrán comunicar sus datos de registro a chatting (por ejemplo, cuando soliciten la ayuda de chatting a través del servicio de soporte – cfr. <strong>Artículo 19</strong>). Por esta razón toda pérdida o mal uso de esta información de registro podría llevar a responsabilidad hacia chatting.</p>
+  <p>Además, queda estrictamente prohibido:</p>
+  <ul>
+  <li>Preguntarles por sus datos de registro a otros usuarios;</li>
+  <li>Registrarse en la cuenta de otra persona;</li>
+  <li>Usar la Herramienta, la App y los Servicios de manera fraudulenta (por ej. el uso de una cuenta falsa o proporcionar información falsa se considera uso fraudulento);</li>
+  <li>Fingir ser otra persona (física o jurídica) mientras se utilizan la Herramienta, la App y los Servicios sin el permiso necesario. Este tipo de acto puede entrañar sanciones civiles y penales.</li>
+  </ul>
+  <p>El Cliente deberá inmediatamente <strong>(i)</strong> penalizar o sancionar todo uso inadecuado y no autorizado e <strong>(ii)</strong> informar inmediatamente por escrito a chatting sobre este tipo de uso y cualquier registro conflictivo que observe.</p>
+  <p>Una notificación bien razonada y fundada puede llevar a la suspensión y/o eliminación temporal y/o perpetua de la Cuenta de Administrador y/o de las Cuentas de Usuario. La propia chatting mantiene un amplio margen de discreción para garantizar la mejor calidad de los Servicios. En cualquier caso, chatting no será responsable por cualquier pérdida o daño resultante del incumplimiento por parte del cliente de los requisitos mencionados.</p>
+  <p></p>
+  <h3>8. No existe Derecho al Desistimiento</h3>
+  <p></p>
+  <p>En virtud del Tomo VI Prácticas de Mercado &amp; Protección al Consumidor del Código de Ley Económica francesa, todo Cliente (en su capacidad de consumidor) tiene un derecho de desistimiento con respecto a productos y/o Servicios adquiridos por Internet, por correo electrónico o por teléfono.</p>
+  <p>Sin embargo, la entrega de los Servicios – es decir la entrega de contenido digital, que no se entrega en un soporte tangible – es considerada como una excepción al derecho de desistimiento ya que el consumidor-Cliente <strong>(i)</strong> expresa de manera expresa que la entrega de los Servicios puede iniciar y asimismo <strong>(ii)</strong> reconoce que ya no podrá recurrir a su derecho al desistimiento. Por consiguiente, el consumidor-Cliente ya no dispone del derecho de desistimiento con respecto a los Servicios solicitados a través de la Demo.</p>
+  <p>Sin perjuicio de lo anterior, chatting le ofrece a cada Cliente (inclusive al consumidor-Cliente) la posibilidad, antes de celebrar el acuerdo con chatting, de usar la Demo. Por tanto, al ofrecer la Demo, chatting ofrece más de lo exigido por la ley.</p>
+  <p>Bajo ninguna circunstancia, los Clientes Profesionales dispondrán del derecho al desistimiento.</p>
+  <p></p>
+  <h3>9. Precio</h3>
+  <p></p>
+  <p>chatting ofrece el Paquete Base a un precio mensual fijo. Si el Cliente opta por Usuarios adicionales y/o por uno o varios Servicios Adicionales, se cobrará un precio mensual por Servicio Adicional además del precio del Paquete Base.</p>
+  <p>El Paquete Base, los Usuarios adicionales y los Servicios Adicionales siempre se venderán a los precios indicados en el Sitio o comunicados por correo electrónico o por teléfono al momento de la compra según resulta aplicable para el país en el que se encuentra el cliente. El precio de dichos Usuarios adicionales y funcionalidades se calculará pro rata teniendo en cuenta el período restante del período de facturación seleccionado (respectivamente trimestral o anual).</p>
+  <p>Los precios se reflejan en dólares y sin IVA, a no ser que se determine específicamente lo contrario.</p>
+  <p>Bajo ninguna circunstancia, chatting garantiza que mantendrá sus precios durante un período determinado, ya que depende de la estructura del mercado ni que mantendrá los mismos precios en cada país donde opera. En la medida que los precios estén basados en los costos salariales, costos de componentes/piezas, contribuciones a la seguridad social e impuestos gubernamentales, pólizas de seguros, costos de materiales, cipos de cambio y/o otros costos del momento, chatting, en el caso de un incremento de uno de varios factores que influyen en el precio, podrá incrementar sobre esta base con arreglo a las niveles legales permitidos.</p>
+  <p>En el caso de un incremento de sus precios, chatting se compromete a notificárselo a su Clientes existentes a través de la Comunicación chatting por lo menos un mes antes de la entrada en vigor de los nuevos precios.</p>
+  <p>Los regalos promocionales por parte de chatting, en la forma que sea (inclusive pero sin limitarse a reducciones de precio y descuento), sólo serán aplicables según las directrices y condiciones señaladas expresamente al respecto. El Cliente reconoce que dichos regalos promocionales no son acumulables y que por su naturaleza son personales y nunca podrán conllevar un derecho implícito a ellos.</p>
+  <p></p>
+  <h3>10. Pago</h3>
+  <p></p>
+  <p>Al solicitar los Servicios, el Cliente acepta la facturación electrónica por parte de chatting, a no ser que las partes acuerden por escrito lo contrario.</p>
+  <p>chatting se compromete a facturarles a sus Clientes respectivamente de forma trimestral o anual – según la preferencia del cliente expresada a la hora de solicitar los servicios (cfr. <strong>Artículo 5</strong>) – pero siempre antes del inicio del Período.</p>
+  <p>Sin perjuicio de lo anterior, las facturas relacionadas con Usuarios y/o funcionalidades adicionales, solicitados después de la celebración del acuerdo serán enviadas al Cliente cuando este último los haya solicitado.</p>
+  <p>Se enviará una factura a la dirección de correo (electrónica) proporcionada por el Cliente al solicitar los Servicios. El cliente se compromete a informar a chatting cuanto antes de cualquier cambio al respecto en un plazo no mayor a los 3 días hábiles.</p>
+  <p>A no ser que se haya acordado de manera expresa lo contrario, las facturas de chatting se cobrarán íntegramente y de manera automática mediante tarjeta de crédito o Adeudo Directo SEPA (SDD, por sus siglas en inglés) – según la preferencia del Cliente indicada al solicitar los servicios – en la fecha de factura (y sin descuento alguno). En la medida que el cobro mediante tarjeta de crédito o adeudo directo resulte imposible, el importe facturado deberá pagarse dentro de un plazo de 14 días naturales a partir de la fecha de factura. <em>Por lo tanto, en el caso de pago mediante adeudo directo SEPA (SDD) en base a procedimientos internos, desde una perspectiva formal, chatting se aleja de sus obligaciones de notificación previa 14 días naturales antes del cobro.</em></p>
+  <p>Para el procesamiento de sus pagos, chatting recurre a los servicios de socios profesionales especializados externos que operan una plataforma de pago. Los pagos en línea se efectúan con la ayuda de protocolos seguros. Todos los pagos en línea quedan sujetos a las condiciones generales del administrador externo de la plataforma de pago, quien tienen la responsabilidad para el procesamiento correcto de todos los pagos en línea.</p>
+  <p>Los datos financieros del Cliente que son introducidos como parte de un pago en línea sólo se intercambian entre el socio externo y la institución financiera correspondiente. chatting no tiene acceso a los datos financieros confidenciales del Cliente.</p>
+  <p>El cliente sólo podrá presentar de manera legítima reclamaciones sobre facturas por correo electrónico a (hola@chatting.app) dentro de los 7 días naturales después de la fecha de factura, indicando la fecha de factura, el número de la factura y una motivación detallada. Dicha reclamación no le exime al Cliente de su obligación de pagar.</p>
+  <p>El pago incondicional por parte del Cliente del importe de la factura es considerado la aceptación explícita de la factura.</p>
+  <p>Los pagos parciales por parte del Cliente siempre son aceptados, quedando sujeto a cambios sin cualquier perjuicio, y primero serán asignados a los gastos de cobranza, después a las indemnizaciones, intereses por pagar y, para terminar, la suma principal, dando preferencia a la asignación a la suma principal pendiente más antigua.</p>
+  <p>Si el cliente rescinde el Acuerdo (por cualquier motivo) (cfr. <strong>Artículo 15</strong>), los importes ya pagados a (independientemente de si el pago adelantado corresponde a un trimestre o un año ) serán retenidos por chatting y no devueltos.<br></p>
+  <p></p>
+  <h3>11. Consecuencias de pago tardío o impago</h3>
+  <p></p>
+  <p>Para cada factura que no haya sido paga íntegra o parcialmente por el Cliente en la fecha de vencimiento, este último será responsable por el pago – en virtud de la ley y sin previo aviso de incumplimiento – de intereses de demora del 1 % mensual en mora, mientras que el importe adeudado se incrementará con todos los gastos de cobranza pagados por chatting en relación con el cobro de la deuda, más el 20 % del importe de la factura, con un mínimo de 150 € (sin IVA), como indemnización global de daños y perjuicios, sin perjuicio al derecho de chatting de reclamar una compensación mayor.</p>
+  <p>chatting también se reserva el derecho de suspender (temporalmente) el acceso a los Servicios hasta que reciba el pago íntegro y concreto del Cliente. Además, chatting podrá dar por cancelada la solicitud entera (o parte de ella) si el pago anteriormente señalado no se efectuó, incluso después de que se haya hecho una notificación formal, y – además – chatting tendrá derecho a una compensación fija del 20 % de precio (sin IVA), con un mínimo de 100 dólares, sin perjuicio de su derecho a una compensación por daños probados más elevados.</p>
+  <p>En consecuencia de lo anterior, todas las demás facturas de chatting al Cliente quedarán inmediatamente vencidas y por pagar, incluso si aún no han vencido, y todas las condiciones de pago otorgadas dejarán de ser aplicables. Lo mismo ocurre en el caso de una quiebra inminente, una liquidación judicial o amistosa, una suspensión de pagos, así como cualquier otro hecho que demuestre que el Cliente es insolvente.</p>
+  <p></p>
+  <h3>12. Uso de los Servicios</h3>
+  <p></p>
+  <p><strong><em>General</em></strong></p>
+  <p>Mientras este acuerdo siga vigente, el Cliente podrá usar la Herramienta, la App y los Servicios dentro del alcance de los Derechos de Acceso del Cliente, cuyo alcance se determina al solicitar los Servicios. El alcance de dichos Derechos de Acceso se puede limitar o extender durante el Período del Acuerdo.</p>
+  <p>El Cliente reconoce que sólo su Administrador y sus Usuarios pueden usar la Herramienta, la App y los Servicios y ello sólo para fines empresariales internos y en conformidad con todos los reglamentos, reglas y leyes aplicables expedidos por autoridades gubernamentales. El cliente concuerda con que el cumplimiento de este artículo constituye una base fundamental de este acuerdo.</p>
+  <p>El uso de y el acceso a los Servicios por parte del Cliente presupone una conexión a internet y el uso de un navegador actualizado (como por ejemplo pero non limitado a la versión más reciente de Google Chrome). De usarse un navegador obsoleto, puede ocurrir que el Cliente no pueda utilizar todas las funcionalidades de los Servicios o que estas funcionalidades no tengan un desempeño óptimo.</p>
+  <p>El Cliente será íntegramente responsable por el cumplimiento de estas condiciones de servicio, así como por los actos y omisiones de todos los usuarios que hagan uso de la Herramienta, la App y los Servicios a través de la cuenta de Administrador y/o la cuenta de Usuario. El Cliente no autorizará el acceso a o permitirá el uso de la Herramienta, la App y los Servicios ni la Documentación por parte de personas que no sean el Administrador o los Usuarios.</p>
+  <p></p>
+  <p><strong><em>Restricciones</em></strong></p>
+  <p>El Cliente acepta no hacer mal uso de los Derechos de Acceso y por lo tanto no, sin que la siguiente enumeración sea exhaustiva:</p>
+  <ul>
+  <li>Venderá, revenderá, otorgará licenciará, sublicenciará, arrendará, dará en arrendamiento financiero, la Herramienta, la App, y cualquier Servicios, o incluirá cualquier Servicio o cualquier trabajo derivado de ellos en una agencia de servicios o oferta de externalización a cualquier tercero;</li>
+  <li>Copiará, modificará, adaptará, alterará, traducirá o elaborará trabajos derivados basados en los Servicios (que no sean copias, modificaciones o trabajos derivados efectuados exclusivamente a partir de los resúmenes que se crean con meros fines empresariales internos del Cliente);</li>
+  <li>Practicará ingeniería reversa sobre, ni desensamblará o decompilará la Herramienta, la App y/o los Servicios, ni autorizará a otros que lo hagan.</li>
+  <li>Utilizará la Herramienta, la App, y los Servicios para fines ilegales o ilegítimos o para la transmisión de datos que resulte ilegal, difamatoria, que invada la privacidad de otros, que sea abusiva, nociva o infrinja la propiedad de intelectual de alguien (lista no exhaustiva).</li>
+  <li>Utilizará la Herramienta, la App y los Servicios para llevar a cabo o promover cualquier actividad ilegal;</li>
+  <li>Utilizará la Herramienta, la App y los Servicios para la transferencia de “correo basura”, “spam”, “cadenas de correo electrónico”, “phishing” u otras modalidades no deseadas de circulación masiva de correos electrónicos;</li>
+  <li>Utilizará los Servicios para acosar, atosigar o dañar a otro individuo;</li>
+  <li>Perturbará el buen funcionamiento de la Herramienta, la App y/o el Sitio. Esto incluye que los Clientes deberán abstenerse de usar virus, gusanos, troyanos u otro software que pueda infringir los Servicios e intereses de tanto chatting como de sus Clientes. Los clientes también deberán abstenerse de cualquier contenido que pueda sobrecargar o perturbar la infraestructura del sitio o su funcionamiento adecuado.</li>
+  <li>Enviará mensajes no solicitados y/o comerciales, como correo basura, spam y cartas en cadena;</li>
+  <li>Agregará contenido que pueda ser definido como inadecuado con respecto a la finalidad de la Herramienta y/o la App. chatting se reserva un amplio criterio y podrá avisarles a sus Clientes cuando estén llegando a los límites;</li>
+  <li>Dará la vuelta al modelo de negocios de chatting;</li>
+  <li>Usará los Servicios – de manera parcial o íntegra – ni la Herramienta, la App o el Sitio de una manera que pueda causar una impresión, atribución o declaración engañosa con respecto a chatting, o a cualquier tercero.</li>
+  </ul>
+  <h3>13. Propiedad intelectual</h3>
+  <p></p>
+  <p><strong><em>Derechos de propiedad intelectual de chatting</em></strong></p>
+  <p>El Cliente reconoce de manera explícita que chatting es y sigue siendo el propietario exclusivo de la Herramienta, la App y los Servicios y/o otros derechos de propiedad intelectual correspondientes. Todos dichos derechos y el fondo de comercio corresponden, y seguirán correspondiendo, a chatting.</p>
+  <p>En consecuencia, los Derechos de Acceso otorgados al Cliente sólo implican al derecho a usar – por un costo – la Herramienta, la App y los Servicios y no se otorgarán licencias implícitas en virtud de este acuerdo. Bajo ninguna circunstancia tal derecho:</p>
+  <ul>
+  <li>Conlleva una transferencia de la propiedad de la Herramienta, la App, los Servicios y la Documentación por parte de chatting al Cliente;</li>
+  <li>Otorga al Cliente cualquier derecho o interés en la Herramienta, la App, los Servicios, cualquier nombre comercial y/o marca comercial de chatting, y</li>
+  <li>Otorga al Cliente el derecho de solicitar a chatting que entregue una copia de cualquier software u otros productos usados por chatting para prestar los Servicios.</li>
+  </ul>
+  <p>Por lo tanto, el Cliente no usará ningún nombre comercial, marca comercial, o nombre de marca de chatting (como por ejemplo pero no limitado a su uso en etiquetas meta, palabras clave o texto oculto) sin el consentimiento expreso escrito de chatting.</p>
+  <p>Sin perjuicio del derecho del Cliente o de cualquier tercero a cuestionar la validez de toda propiedad intelectual de chatting, el Cliente no llevará a cabo o autorizará a ningún tercero a llevar a cabo cualquier acto que pueda o pudiera invalidar o resultar incompatible con cualquier propiedad intelectual de chatting – inclusive sin limitarse a cualquier patente, derecho de autor, marca comercial u otros derechos de propiedad industrial o intelectual – y no omitirá o autorizará a ningún tercero llevar a cabo cualquier acto que, por su omisión, tendría tal efecto.</p>
+  <p>El Cliente se compromete a informarle a chatting sobre cualquier violación real, amenaza o sospecha de violación de cualquier derecho de propiedad intelectual de chatting de la que el Cliente llegue a tener conocimiento, y de cualquier reclamación por parte de un tercero debido al uso de la herramienta, la App y los Servicios.</p>
+  <p><strong><em>Documentación</em></strong></p>
+  <p>Sujeta a estas condiciones de Servicio, chatting otorga por la presente una licencia no exclusiva, no transferible durante el Período (cfr. <strong>Artículo 14</strong>) para reproducir copias de la Documentación para uso exclusivo por parte del cliente relacionado con sus Derechos de Acceso. El cliente reconoce que:</p>
+  <ul>
+  <li>No se otorgan derechos para publicar, modificar, adaptar, traducir o crear trabajos derivados de la Documentación;</li>
+  <li>La Documentación forma parte de la propiedad intelectual de chatting y acepta reproducir con exactitud todos los avisos de propiedad, inclusive avisos de derechos de autor, avisos de marca comercial o avisos de confidencialidad, que están incluidos en todas las copias de la Documentación.</li>
+  </ul>
+  <p><strong><em>Derechos de propiedad intelectual del Cliente</em></strong></p>
+  <p>Sin transferir ningún derecho, título o interés, las partes acuerdan que chatting tiene el permiso de hacer referencias precisas a los nombres comerciales, marcas comerciales o marcas de servicio (llamados en conjunto las <strong>“Marcas”</strong>) del Cliente en relación con la ejecución de los Servicios, por ejemplo mediante la diferenciación de marca en la página de inicio del Cliente a través de las marcas de este último, siempre sujeto a la condición de que chatting deje de utilizar cualquier de las Marcas propiedad del Cliente en relación con la ejecución de los Servicios en el momento de la (i) rescisión del presente acuerdo (ii) de la recepción de un aviso por parte del Cliente solicitando poner fin a dicho uso.</p>
+  <p></p>
+  <h3>14. Duración</h3>
+  <p></p>
+  <p>Todo acuerdo cerrado entre chatting y el cliente sobre el uso de la Herramienta, la App y los Servicios tendrá un período definido de respectivamente un trimestre o un año, dependiendo de la preferencia del Cliente al solicitar los Servicios.</p>
+  <p>El Período se prorrogará de manera automática respectivamente un trimestre o un año si el acuerdo no es rescindido por el Cliente a más tardar 15 días naturales antes de su terminación, por lo que chatting tendrá el derecho de facturarle al Cliente el período prorrogado.</p>
+  <p></p>
+  <h3>15. Resolución</h3>
+  <p></p>
+  <p><strong><em>Resolución por parte del Cliente</em></strong></p>
+  <p>El Cliente podrá rescindir el Acuerdo mediante notificación por escrito a chatting por correo electrónico a (hola@chatting.app):</p>
+  <p>(i) En cualquier momento y por cualquier motivo, siempre que esta resolución tenga lugar al menos 15 días naturales antes del vencimiento del período.</p>
+  <p>Toda rescisión por parte del cliente en menos de 15 de días naturales antes del vencimiento del Período quedará sin efecto ya que el acuerdo se prolongará automáticamente (cfr. Artículo 14). Por consiguiente, el Cliente estará obligado a pagar la factura relacionada con el período renovado, incluso si el Cliente no tiene la intención de continuar usando la Herramienta, la App y los Servicios.</p>
+  <p>(ii) En el caso de que el Cliente no pueda aceptar una de las circunstancias siguientes (lista no limitativa) y tal rescisión tenga lugar en los 30 días naturales después de haber informado de ellas por parte de chatting: <strong>(i)</strong> un cambio en la oferta de los Servicios, que conlleva una desventaja significativa para el Cliente, <strong>(ii) </strong>un cambio de estas condiciones de servicio por parte de chatting (cfr. <strong>Artículo 2</strong>) o <strong>(iii)</strong> cualquier ajuste de precios anunciado por chatting (cfr. <strong>Artículo 9</strong>). Bajo ninguna circunstancia, ello le confiere al Cliente el derecho de reclamar cualquier tipo de daños o compensación a chatting;</p>
+  <p>(iii) En el caso de que el Artículo 6.5 del acuerdo de tratamiento de datos entre chatting y el Cliente (cfr. <strong>Artículo 17</strong>) entre en vigor y se cumplan las condiciones correspondientes.</p>
+  <p>Sin embargo, antes de tal rescisión por parte del Cliente pero en todo caso antes de la desactivación por parte de chatting, esta última tiene la obligación de exportar los Datos del Cliente utilizando las Herramientas de exportación disponibles.</p>
+  <p><strong><em>Rescisión por parte de chatting</em></strong></p>
+  <p>Sin perjuicio a cualquier otro derecho o recurso legal que chatting pueda tener contra el Cliente, chatting podrá rescindir el acuerdo en cualquier momento y sin intervención legal en el caso de circunstancias excepcionales que hagan imposible la continuación de cualquier colaboración profesional entre chatting y el Cliente.</p>
+  <p>El Cliente acuerda que las siguientes circunstancias deberán ser consideradas como circunstancias excepcionales:</p>
+  <p>(i) Si chatting detecta o tiene motivos sólidos para asumir que:</p>
+  <p>– Las Datos del Cliente son falsos, engañosos, inexactos u obsoletos;</p>
+  <ul>
+  <li>El Cliente incumple materialmente cualquiera de las disposiciones de estas condiciones de servicio y, a pesar de una notificación por parte de chatting en la que solicite que (i) rectifique la situación así como (ii) se abstenga de tal violación y, de ser posible, (iii) evite que se produzca(n) tal violación o violaciones en el futuro, no atienda dicha solicitud en los 30 días naturales después de la recepción de dicha notificación, sin perjuicio del derecho de chatting a reclamar al Cliente una indemnización adicional como resultado de este incumplimiento contractual;</li>
+  </ul>
+  <p>– El Cliente utiliza la Herramienta, la App y los Servicios para fines no autorizados, ilegales y/o inapropiados;</p>
+  <p>– El acuerdo con el Cliente se fundamenta en información incorrecta o falsa del Cliente; o</p>
+  <p>– El Cliente solicitó los Servicios por razones que no pueden ser considerados objetivamente razonables y aceptables.</p>
+  <p>(ii) Si el Cliente presenta suspensión de pagos, hace una declaración de quiebra, es declarado en quiebra, entra en liquidación o en un procedimiento similar o es liquidado;</p>
+  <p>(iii) Si el cliente comete actos deshonestos, desleales o fraudulentos con respecto a chatting, su actividad empresarial, o su Herramienta, App y Servicios;</p>
+  <p>En el caso de tal rescisión, notificada mediante correo electrónico, el acuerdo quedará rescindido de manera automática sin período de preaviso o indemnización y sin perjuicio del derecho a una indemnización.</p>
+  <p><strong><em>Consecuencias de la rescisión</em></strong></p>
+  <p>Al término de este Contrato</p>
+  <p>✓ Por parte del Cliente, chatting se compromete a desactivar la Cuenta de Administrador del Cliente en 2 días laborables – pero en cualquier caso no antes de que venza el Período en curso – y hará todo lo posible para informarle al cliente con antelación sobre dicha desactivación;</p>
+  <p>✓ Por parte de chatting, este último <strong>(i) </strong>desactivará la Cuenta de Administrador y las Cuentas de Usuario del Cliente y <strong>(ii)</strong> le notificará al Cliente sobre la posibilidad durante el Período, tal como se mencionó en la notificación, de exportar los Datos del Cliente mediante las Herramientas de exportación disponibles;</p>
+  <p>✓ chatting tiene el derecho de rechazar cualquier solicitud del Cliente de celebrar un (nuevo) acuerdo con respecto al uso de la Herramienta, la App y los Servicios.</p>
+  <p>✓ Cada parte cesará su uso y devolverán la información confidencial y los materiales con derechos de propiedad intelectual a la otra parte.</p>
+  <p>Si el Cliente no ha exportado sus Datos de Cliente antes de rescindir el acuerdo o dentro del plazo otorgado por chatting después de su rescisión, chatting primero suprimirá los Datos del Cliente mediante ‘soft deletion’ (eliminación temporal) y después, una vez terminado un período de (máximo) seis (6) meses, anonimizará los Datos de Cliente.</p>
+  <p>Los Artículos 13, 16, 17 y 18 se mantendrán y seguirán vigentes de acuerdo a sus condiciones, a pesar del vencimiento o la rescisión del presente Acuerdo por cualquier motivo.</p>
+  <p>La rescisión del acuerdo, por el motivo que sea, no será en perjuicio de los derechos adquiridos por cada Parte.</p>
+  <p></p>
+  <h3>16. Responsabilidad civil</h3>
+  <p></p>
+  <p>La responsabilidad de chatting se limitará al más bajo de los montos siguientes: <strong>(i)</strong> el valor de factura de la última factura relacionada con la Herramienta, la App y los Servicios, o <strong>(ii)</strong> el pago de las pólizas de seguro suscritas por chatting y en todo caso limitado a la responsabilidad obligatoria bajo la legislación francesa.</p>
+  <p>Salvo si se afirmado o justifica expresamente lo contrario en estas condiciones de servicio y hasta donde lo permita la ley vigente, la Herramienta, la App y/o los Servicios así como la Documentación y cualquier otro producto o servicio proporcionado por chatting se entregan “tal como están”. Por lo tanto, chatting declina cualquier y todas las otras promesas, condiciones, declaraciones y garantías – tanto expresas o implícitas – inclusive pero no limitadas a cualquier garantía de aptitud para un uso específico, destreza y cuidado razonable, integración de sistemas y/o precisión de los datos.</p>
+  <p>Además chatting no garantiza que la Herramienta, la App y/o los Servicios cumplirán con todos los requisitos del Cliente. Y más cuando el Cliente tiene la posibilidad de <strong>(i)</strong> hacer uso de la Demo (<strong>cfr. Artículo 4</strong>) antes de convertirse en Cliente de pago y <strong>(ii)</strong> pedirle en cualquier momento a chatting más información al respecto. Por consiguiente, el Cliente declara haber recibido información suficiente sobre el contenido y el alcance de la Herramienta, la App y los Servicios.</p>
+  <p>Sin perjuicio a la generalidad de la sección anterior, chatting no garantiza que:<strong>(i)</strong> el funcionamiento de la Herramienta, la App y los Servicios será ininterrumpido o estará libre de errores ni que todos los errores y/o errores informáticos serán corregidos (dentro de un plazo razonable),<strong> (ii)</strong> la Herramienta, la App y los Servicios estarán disponibles de manera constante, libre de virus, de manera puntual y completa, o <strong>(iiI)</strong> la información proporcionada por la Herramienta, la App y los Servicios es completa, correcta, exacta y no engañosa.</p>
+  <p>El uso pretendido de la Herramienta, la App y los Servicios por parte del Cliente, Administrador y/o los Usuarios se determina baja su total responsabilidad y a su propio riesgo. chatting no podrá ser responsabilizada de ninguna manera por cualquier daño directo o indirecto que resulte de este uso pretendido. Por este motivo, el Cliente, Administrador y/o Usuario será el responsable exclusivo por cualquier daño a su (programas de) ordenador, dispositivos inalámbricos y/o otro equipo resultante de la Herramienta, la App y los Servicios.</p>
+  <p>chatting tampoco será responsable por:</p>
+  <p>✓ Daños indirectos y/o consecuentes (inclusive pero no limitados a pérdida de ingresos, pérdida de imagen y daños a la propiedad del Cliente causados por la Herramienta, la App y los Servicios). Esta limitación de responsabilidad también será aplicable cuando chatting ha sido informada de la pérdida potencial por parte del Cliente;</p>
+  <p>✓ Fallas causadas directa o indirectamente por un acto por parte del Cliente o de un tercero, independientemente de si hayan sido causados por un error o por una negligencia;</p>
+  <p>✓ Daños causados por usar la Herramienta, la App y los Servicios para un fin distinto al pretendido o al para el cual haya sido desarrollado por chatting;</p>
+  <p>✓ Daños adicionales causados por el uso continuado por parte del Cliente, Administrador y/o Usuarios después de que se haya detectado una falla;</p>
+  <p>✓ La pérdida o el uso incorrecto de Datos de Cliente, a no ser que sólo se deba a su falta;</p>
+  <p>✓ Daños causados por no cumplir con cualquier consejo y/o instrucción que pueda haber dado chatting, que esta última siempre proporciona de forma discrecional;</p>
+  <p>✓ Daños causados por fuerza mayor o dificultades excepcionalmente gravosas (cfr. <strong>Artículo 23</strong>).</p>
+  <p>Además, el Cliente acepta que chatting no ofrece ninguna garantía de que la Herramienta, la App y los Servicios cumplan con los reglamentos o requisitos en cualquier espacio jurídico, a excepción de los reglamentos o requisitos vigentes en Bélgica en el momento de la celebración del acuerdo. Por lo tanto, chatting no podrá ser responsabilizada por cualquier cambio posterior de cualquier tipo en dichos reglamentos y/o ley.</p>
+  <p>Se supone que el Cliente no dará ninguna información (confidencial) (p.ej. una hoja Excel con datos, inclusive Datos de Cliente) ni información de registro a ningún empleado de chatting de ninguna manera y por ningún motivo. Si el Cliente, al contrario de lo anterior, proporciona alguno de dichos datos a chatting, el Cliente reconoce que está actuando totalmente por su cuenta y riesgo. En tal caso, chatting no podrá garantizar la misma seguridad y confidencialidad con respecto a la información proporcionada que la que garantiza con respecto a los Datos del Cliente.</p>
+  <p>El cliente reconoce la responsabilidad de chatting sólo podrá ser invocada directamente por el Cliente y no por un tercero, como por ejemplo la persona relacionada con los Datos de Cliente.</p>
+  <p>El Cliente indemnizará y/o eximirá a chatting y/o a un Indemnizado de chatting por todas las reclamaciones de cualquier naturaleza que puedan surgir por la existencia, la implementación, el incumplimiento y la rescisión de estas condiciones de servicio y que hayan sido causadas por su propia negligencia, falta o descuido o por su Administrador y/o por cualquier de sus Usuarios.</p>
+  <p>Para terminar, es la responsabilidad del Cliente informarles a su Administrador y a sus Usuarios sobre las disposiciones de este Artículo (y el resto de estas condiciones de servicio)</p>
+  <p></p>
+  <h3>17. Datos personales y privacidad</h3>
+  <p></p>
+  <p><strong><em>chatting como responsable del tratamiento de los datos</em></strong></p>
+  <p>El tratamiento por parte de chatting de datos personales relacionados con el Cliente potencial y/o su personal/plantilla se efectuará con arreglo a las disposiciones de la declaración de privacidad de chatting. En tal caso, chatting actúa como responsable del tratamiento de los datos.</p>
+  <p>Esta declaración de privacidad incluye información sobre los datos personales recogidos por chatting, así como la manera en la que chatting usa y trata estos datos personales. La declaración de Privacidad de chatting puede ser consultada en el Sitio y debe leerse junto con la política de cookies.</p>
+  <p>Al solicitar los Servicios o celebrar un acuerdo con chatting – inclusive al registrarse para la Demo – el Cliente reconoce haber leído declaración de privacidad y la acepta.</p>
+  <p><strong><em>chatting como encargado del procesamiento de datos</em></strong></p>
+  <p>El Cliente reconoce que – con respecto al tratamiento de datos de Cliente – deberá actuar como responsable y chatting como encargado. Todos los arreglos establecidos entre las partes al respecto se regirán exclusivamente por el acuerdo de tratamiento de datos, tal como se ha celebrado entre las partes y se encuentra disponible en la Cuenta de Administrador.</p>
+  <p>A la vista de lo anterior (cfr. <strong>Artículo 2</strong>), el Cliente reconoce explícitamente que al solicitar los Servicios o al celebrar un acuerdo con chatting, el Cliente reconoce haber leído y aceptar el acuerdo de tratamiento de datos en su totalidad.</p>
+  <p></p>
+  <h3>18. Confidencialidad</h3>
+  <p></p>
+  <p><strong><em>Datos de Cliente</em></strong></p>
+  <p>Todo Cliente tiene la obligación de tratar sus Datos de Cliente con confidencialidad así como asegurarse de que todo tercero, a quien otorgue acceso a una cuenta de Usuario, esté vinculado por las mismas obligaciones de confidencialidad.</p>
+  <p>El cliente debe ser consciente de que al proporcionar su “clave-API” a un tercero, esto conlleva otorgarle a este tercero el acceso íntegro a su Cuenta de Administrador y Cuenta de Usuario, sus datos de registro y sus Datos de Cliente.</p>
+  <p></p>
+  <p><strong><em>Colaboración</em></strong></p>
+  <p>Toda información (inclusive pero no limitada a toda información de naturaleza financiera, comercial, legal, fiscal, social, técnica y organizacional, secretos empresariales y comerciales, socio comercial, datos de clientes y de proveedores, datos de empleados, datos personales, programas, códigos fuente, programas informáticos, módulos, scripts, algoritmos, funcionalidades y modalidades de funcionamiento, inventos (patentables o no), procesos, diagramas, procedimientos de prueba, diseño de software y arquitectura, especificaciones de diseño y funcionamiento) intercambiada entre las partes antes de celebrar un acuerdo así como durante el acuerdo será considerada confidencial y deberá ser tratada por todas las partes con el mayor sigilo y por lo tanto, concretamente, el receptor:</p>
+  <p>✓ Utilizará la información confidencial exclusivamente por cuenta propia en con el mayor sigilo;</p>
+  <p>✓ No utilizará, reproducirá o distribuirá la información confidencial de ninguna manera o para ninguna finalidad que no sea la colaboración (posible) entre las partes;</p>
+  <p>✓ No practicará ingeniería reversa sobre, ni desensamblará o decompilará ninguna información confidencial;</p>
+  <p>✓ No obtendrá ningún beneficio comercial de la información confidencial;</p>
+  <p>✓ No divulgará, dará a conocer o hará la información confidencial, de la que tenga conocimiento, disponible para cualquier tercero, sin el consentimiento expreso por escrito de la parte divulgadora;</p>
+  <p>✓ Sólo dará a conocer dicha Información confidencial a aquellos empleados que necesiten conocer esta información en del marco de la (posible) colaboración entre las partes, y el receptor certifica y garantiza que dichos empleados acordaron previamente, como condición para ser contratados, estar vinculados por condiciones básicamente similares a las disposiciones aplicables al receptor bajo estas condiciones de servicio.</p>
+  <p>Las obligaciones, tal como quedan definidas en el párrafo anterior, no son aplicables para la información siguiente:</p>
+  <p>✓ Información que esté disponible al público, que se haya divulgado públicamente y/o que sea conocida por el público en general en el momento de su divulgación;</p>
+  <p>✓ Información que haya sido obtenida de manera legítima por el receptor sobre una base no confidencial de cualquier tercero que no sea la parte divulgadora, donde dicho tercero no esté vinculado por un acuerdo de confidencialidad con la parte divulgadora;</p>
+  <p>✓ Información cuya divulgación/comunicación se requerida por ley o por un tribunal u otra decisión gubernamental (de cualquier índole). En dicho caso, el receptor, comentará con la parte divulgadora el alcance y la modalidad de dicha divulgación/comunicación antes de cualquier divulgación/comunicación.</p>
+  <p>La obligación de confidencialidad se mantendrá vigente durante el período de la colaboración entre las partes y seguirá existiendo durante un período de cinco (5) años empezando al momento del finalizar la colaboración por el motivo que sea.</p>
+  <p>La parte divulgadora seguirá siendo en todo momento la propietaria exclusiva de su información confidencial. Salvo según lo establecido de manera expresa en el presente documento, nada en estas condiciones de servicio o en la relación entre las partes otorgará al receptor cualquier derecho o interés en la información confidencial y no se otorgan licencias implícitas mediante estas condiciones de servicio.</p>
+  <p>Sin embargo, en ningún caso la obligación de confidencialidad implicará que chatting no tenga el derecho de usar cualquier idea, retroalimentación recibida del Cliente, que pueda servir para mejorar y desarrollar la Herramienta, la App y los Servicios.</p>
+  <p>Sin perjuicio de lo anterior, el Cliente reconoce que en el caso de que se firme un acuerdo de no divulgación entre las partes, dicho acuerdo de no revelación prevalecerá.</p>
+  <p></p>
+  <h3>19. Servicio de Soporte</h3>
+  <p></p>
+  <p>En el caso de que el Cliente necesite ayuda o tenga preguntas acerca de la Herramienta, la App y los Servicios, se le recomienda al Cliente que primero consulte la página de soporte de chatting (<a href="https://www.chatting.app" rel="nofollow">https://www.chatting.app</a>).</p>
+  <p>Si la información ofrecida en la página de soporte de chatting no proporciona la ayuda necesaria, el Cliente podrá contactar el servicio de soporte de chatting sin cargos. El servicio de soporte de chatting estará disponible a través de correo electrónico en (hola@chatting.app) y por teléfono de lunes a viernes de las 9 am hasta las 5 pm (CET), salvo festivos o días libres que sustituyen festivos que cayeron durante el fin de semana.</p>
+  <p>El servicio de soporte de chatting hará todo lo posible para ayudar al Cliente lo antes posible después de la solicitud de apoyo.</p>
+  <p>El Cliente soportará los costos incurridos en consecuencia de quejas y/o preguntas no justificadas.</p>
+  <p></p>
+  <h3>20. Disponibilidad, Mantenimiento periódico y actualizaciones</h3>
+  <p></p>
+  <p>chatting le ofrece a sus Clientes la posibilidad de comprobar en cualquier momento, en directo y en tiempo real la disponibilidad de sus Servicios a través de su Sitio. En el caso de problemas con la disponibilidad de sus Servicios, chatting se compromete a hacer todo los posible para resolver tal problema cuanto antes, sin dar garantía alguna. En cualquier caso, y cuando resulte apropiado, chatting tendrá la libertad de determinar qué puede ser considerado una solución o una compensación adecuada para sus Clientes al respecto.</p>
+  <p>chatting quiere preservar la elevada calidad de la Herramienta, la App y los Servicios efectuando de manera periódica actividades de mantenimiento e implementando actualizaciones. chatting se compromete a reducir al mínimo el impacto de dichas actividades de mantenimiento y actualizaciones en la disponibilidad de la Herramienta, la App y los Servicios pero no excluye ningún tiempo de actividad al respecto. En cualquier caso, chatting se compromete a hacer todo lo posible para informarle al cliente de ello a su debido tiempo, a no ser que ello resulte imposible o inútil.</p>
+  <p>Lo anterior no constituirá motivos para que chatting pague compensaciones.</p>
+  <p></p>
+  <h3>21. Comunicación chatting</h3>
+  <p></p>
+  <p>El cliente puede darse de baja en cualquier momento de la comunicación de chatting. Ya que la Comunicación es considerada una parte íntegra de los Servicios, en ningún caso, el Cliente podrá responsabilizar a chatting por cambios de cualquier naturaleza de los cuales el Cliente habría estado informado a través de la Comunicación si no hubiera optado por darse de baja.</p>
+  <p></p>
+  <h3>22. Cambios en los servicios</h3>
+  <p></p>
+  <p>chatting tiene el derecho de modificar en cualquier momento la oferta y el contenido de sus Servicios, inclusive su Paquete Basey/o funcionalidades. En tal caso, chatting se lo notificará al Cliente en un plazo razonable antes de dicha modificación mediante un <strong>(i)</strong> aviso en el Sitio, la Herramienta y/o la App y/o <strong>(ii)</strong> la comunicación chatting.</p>
+  <p></p>
+  <h3>23. Fuerza Mayor/dificultades excepcionalmente gravosas</h3>
+  <p></p>
+  <p>chatting no es responsable por cualquier omisión de cumplir con sus obligaciones si esta omisión se debe a fuerza mayor o a dificultades excepcionalmente gravosas.</p>
+  <p>Circunstancias típicas de fuerza mayor o dificultades excepcionalmente gravosas incluyen: todas la circunstancias que en el momento de la celebración del acuerdo eran razonablemente imprevisibles e inevitables, y que impiden a chatting ejecutar el acuerdo, o que dificultarían la ejecución del acuerdo, desde una perspectiva financiera u otra, en comparación con una situación normal (inclusive pero no limitado a, guerra, desastres naturales, incendio, embargos, atrasos con o quiebra de terceros contratados por chatting, falta de personal, huelgas, circunstancias organizativas y amenazas o actos de terrorismo).</p>
+  <p>Las situaciones mencionadas anteriormente le dan a chatting el derecho de actualizar y/o suspender el acuerdo mediante una simple nota escrita al Cliente, sin tener la responsabilidad de pagar una compensación. Si la situación de fuerza mayor y/o de dificultades excepcionalmente gravosas dura más de 2 meses, chatting tendrá el derecho de rescindir el acuerdo (cfr. <strong>Artículo 15</strong>).</p>
+  <p></p>
+  <h3>24. Compensación (por saldos netos)</h3>
+  <p></p>
+  <p>De conformidad con las disposiciones de la Ley francesa sobre Garantías Financieras del 15 de diciembre de 2004, las partes acuerdan que en su relación recíproca, a partir del inicio del acuerdo entre chatting y el Cliente, todas las deudas actuales así como las deudas futuras siempre se compensarán de manera automática y entre ellas, independientemente de su fecha de vencimiento, su finalidad o la moneda en la cual están reflejadas. En el caso de acreedores concurrentes, la reclamación de la otra parte hacia la parte que se enfrenta a acreedores concurrentes siempre quedará limitada al importante restante después de la compensación de las cantidades exigibles y la compensación definitiva tendrá en todo caso efecto legal con el administrador y los acreedores restantes, quienes por este motivo, no podrán objetar ni oponerse a cualquiera de las compensaciones o balances de deuda efectuados por las partes.</p>
+  <p></p>
+  <h3>25. Derecho aplicable y jurisdicción</h3>
+  <p></p>
+  <p>Todos los asuntos, cuestiones y conflictos sobre la validez, interpretación, ejecución, funcionamiento o rescisión de este acuerdo se regirán por y serán interpretados con arreglo a la legislación francesa.</p>
+  <p>Cualquier conflicto sobre la validez, interpretación, ejecución, rescisión o el funcionamiento de este acuerdo será presentado ante los tribunales del lugar donde chatting tiene su sede social.</p>
+  <p></p>
+  <h3>26. Idioma</h3>
+  <p></p>
+  <p>A no ser que se haya acordado de manera expresa lo contrario, el Cliente reconoce que el idioma de estas condiciones también será el idioma de trabajo en todas las transacciones comerciales con chatting.</p>
+  <p>El idioma original de estas condiciones es el inglés. Las traducciones o documentos redactados en un idioma distinto siempre serán considerados como un plus para el Cliente. En el caso de cualquier conflicto, siempre prevalecerá la versión en inglés.</p>
+  <p></p>	
+				</div>
+            </div>
+
+        </div>
+      
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+      <div class="shape shape-fluid-x shape-bottom text-white pb-18">
+        <div class="shape-img pb-9 pb-md-15">
+          <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 0h100v25H75L25 50H0z" fill="currentColor"/></svg>        </div>
+      </div>
+    </div>
+
+
+
+
+   
+    <!-- FOOTER -->
+    <footer class="footer py-8 pt-md-11 bg-dark">
+      <div class="container-lg">
+
+        <div class="row">
+
+        </div>
+        <div class="row align-items-center">
+          <div class="col-12 col-md">
+    
+            <!-- List -->
+            <ul class="list-inline list-unstyled text-white small mb-md-0">
+              <li class="list-inline-item">
+                © 2021 Chatting App
+              </li>
+              <li class="list-inline-item ms-md-8">
+                <a class="text-reset" href="#!">
+                 Aviso de Privacidad
+                </a>
+              </li>
+              <li class="list-inline-item ms-md-8">
+                <a class="text-reset" href="#!">
+                 T&C
+                </a>
+              </li>
+            </ul>
+    
+          </div>
+          <div class="col-12 col-md-auto">
+    
+            <!-- Social -->
+            <ul class="list-inline list-unstyled text-white mb-0">
+              <li class="list-inline-item">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0V0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.163 12 18.163C15.403 18.163 18.162 15.404 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.21 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.21 14.209 16 12 16ZM18.406 4.155C17.61 4.155 16.965 4.8 16.965 5.595C16.965 6.39 17.61 7.035 18.406 7.035C19.201 7.035 19.845 6.39 19.845 5.595C19.845 4.8 19.201 4.155 18.406 4.155Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item ms-1">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.675 0H1.325C0.593 0 0 0.593 0 1.325V22.676C0 23.407 0.593 24 1.325 24H12.82V14.706H9.692V11.084H12.82V8.413C12.82 5.313 14.713 3.625 17.479 3.625C18.804 3.625 19.942 3.724 20.274 3.768V7.008L18.356 7.009C16.852 7.009 16.561 7.724 16.561 8.772V11.085H20.148L19.681 14.707H16.561V24H22.677C23.407 24 24 23.407 24 22.675V1.325C24 0.593 23.407 0 22.675 0V0Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item ms-1">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 4.55705C23.117 4.94905 22.168 5.21305 21.172 5.33205C22.189 4.72305 22.97 3.75805 23.337 2.60805C22.386 3.17205 21.332 3.58205 20.21 3.80305C19.313 2.84605 18.032 2.24805 16.616 2.24805C13.437 2.24805 11.101 5.21405 11.819 8.29305C7.728 8.08805 4.1 6.12805 1.671 3.14905C0.381 5.36205 1.002 8.25705 3.194 9.72305C2.388 9.69705 1.628 9.47605 0.965 9.10705C0.911 11.388 2.546 13.522 4.914 13.997C4.221 14.185 3.462 14.229 2.69 14.081C3.316 16.037 5.134 17.46 7.29 17.5C5.22 19.123 2.612 19.848 0 19.54C2.179 20.937 4.768 21.752 7.548 21.752C16.69 21.752 21.855 14.031 21.543 7.10605C22.505 6.41105 23.34 5.54405 24 4.55705Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item ms-1">
+                <a class="icon icon-sm text-reset" href="#!">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.373 0 0 5.372 0 12C0 17.084 3.163 21.426 7.627 23.174C7.522 22.225 7.427 20.769 7.669 19.733C7.887 18.796 9.076 13.768 9.076 13.768C9.076 13.768 8.717 13.049 8.717 11.986C8.717 10.318 9.684 9.072 10.888 9.072C11.911 9.072 12.406 9.841 12.406 10.762C12.406 11.791 11.751 13.33 11.412 14.757C11.129 15.951 12.011 16.926 13.189 16.926C15.322 16.926 16.961 14.677 16.961 11.431C16.961 8.558 14.897 6.549 11.949 6.549C8.535 6.549 6.531 9.11 6.531 11.756C6.531 12.787 6.928 13.894 7.424 14.494C7.522 14.613 7.536 14.718 7.507 14.839L7.174 16.199C7.121 16.419 7 16.466 6.772 16.36C5.273 15.662 4.336 13.471 4.336 11.711C4.336 7.926 7.086 4.449 12.265 4.449C16.428 4.449 19.663 7.416 19.663 11.38C19.663 15.516 17.056 18.844 13.436 18.844C12.22 18.844 11.077 18.213 10.686 17.466L9.938 20.319C9.667 21.362 8.936 22.669 8.446 23.465C9.57 23.812 10.763 24 12 24C18.627 24 24 18.627 24 12C24 5.372 18.627 0 12 0V0Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+    
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><script src="https://cdn.jsdelivr.net/gh/luisxciv/whatsapp-button-widget@4.3/whatsapp-button-widget.js"></script><script> var whatsAppBtn = new chattingWhatsAppBtn({contact:{phone:"5214428466999",meLink:"https://facebook.com/chatting",instagram:"chatting.app",telegram_username:"luisxciv",email_address:"hola@chatting.app"},text:"Hola! Estoy interesado en su CRM omnicanal!",callTo:"Aùn tienes dudas?",backgroundColor:"#dc5341",textColor:"#f0ffff",position:"right",channels:["messenger","whatsapp","email","instagram","telegram",],shape:"round",emojii:"💬"});whatsAppBtn.renderButton()</script>
+    <script src="assets/js/theme.bundle.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+
+    <script type="text/babel" src="./assets/js/people.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <!-- Map JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    
+  <!-- Vendor JS -->
+  <script src="assets/js/vendor.bundle.js"></script>
+    
+  <!-- Theme JS -->
+
+  </body>
+</html>
